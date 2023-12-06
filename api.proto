@@ -1,0 +1,30 @@
+
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package math_api;
+
+// Interface exported by the server.
+service Addition {
+  // A simple RPC.
+  //
+  // Gets two numbers and returns the sum of those numbers.
+  rpc add(request) returns (response) {}
+
+  // A server-to-client streaming RPC.
+  //
+  // Gets two numbers and streams the response 3 times (adding the result to the last result every time) to the client.
+  rpc addStreamer(request) returns (stream response) {}
+}
+
+// request data struct, two numbers a and b
+message request {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+// response data structure, a single number
+message response {
+  int32 result = 1;
+}
