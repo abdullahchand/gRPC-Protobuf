@@ -6,6 +6,7 @@ import (
 )
 
 
+// Assigning MathServer Type the AddStreamer function and overriding the function from the generated files
 func (math_server MathServer) AddStreamer(numbers *proto.Request, streamer proto.Addition_AddStreamerServer)  error {
 	log.Printf("Stream request recieved...")
 
